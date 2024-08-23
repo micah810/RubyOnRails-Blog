@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
+  #The root route below is mapped to the index action of ArticleController
+  root "articles#index"
+
   #The route below declares that GET /articles requests are mapped
   # to the index action of ArticlesController.
   get "/articles", to: "articles#index"
-
-  #The 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

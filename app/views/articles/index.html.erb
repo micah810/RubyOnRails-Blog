@@ -2,8 +2,18 @@
 
 <ul>
   <% @articles.each do |article| %>
+
+    <!--      link_to helper: Makes creating links easier in Rails.-->
+    <!--      First argument: The text you want to show for the link.-->
+    <!--      Second argument: The destination (where the link should go).-->
+
+    <!--      <%#= link_to article.title, article %>:-->
+    <!--      article.title: This is the text of the link.-->
+    <!--      article: This is the model object. link_to turns it into a URL using article_path-->
+
     <li>
-      <%= article.title %>
+      <%= link_to article.title, article %>
     </li>
   <% end %>
 </ul>
+

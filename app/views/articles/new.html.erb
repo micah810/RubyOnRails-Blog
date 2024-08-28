@@ -1,0 +1,23 @@
+<h1>New Article</h1>
+
+<%= form_with model: @article do |form| %>
+<!--  'form.' is an object that creates form fields
+& add labels, text fields, text areas, and submit buttons-->
+  <div>
+<!--    form.label :title: Creates a label for the title field.-->
+<!--    form.text_field :title: Creates a text input for the title field.-->
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+<!--    form.text_area :body: Creates a larger text area for the body field.-->
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </div>
+
+  <div>
+<!--    form.submit: Adds a submit button.-->
+    <%= form.submit %>
+  </div>
+<% end %>

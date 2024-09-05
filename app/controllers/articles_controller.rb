@@ -22,5 +22,9 @@ class ArticlesController < ApplicationController
       # the setup helps create and save articles/fix errors if something goes wrong
       render :new, status: :unprocessable_entity
     end
+    private
+    def article_params
+      params.require(:article).permit(:title, :body)
+    end
   end
 end

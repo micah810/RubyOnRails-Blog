@@ -22,6 +22,26 @@ class ArticlesController < ApplicationController
       # the setup helps create and save articles/fix errors if something goes wrong
       render :new, status: :unprocessable_entity
     end
+
+    def edit
+      @article = Article.find(params[:id])
+    end
+    # The edit action gets the article from the database and stores
+    # it in @article for use in the form.
+    # By default, it renders app/views/articles/edit.html.erb.
+    def update
+      @article = Article.find(params[:id])
+
+      if @article.update(article_params)
+        redirect_to @article
+      else
+        render :edit, status: :unprocessable_entity
+      end
+      # The update action refetches the article, updates it with form data,
+      # and redirects if successful. If errors occur, it redisplays the form with error messages.
+    end
+
+
     private
     def article_params
       params.require(:article).permit(:title, :body)

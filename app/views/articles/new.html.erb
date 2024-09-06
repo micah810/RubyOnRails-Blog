@@ -1,5 +1,7 @@
 <h1>New Article</h1>
 
+<%= render "form", article: @article %>
+
 <%= form_with model: @article do |form| %>
 <!--  'form.' is an object that creates form fields
 & add labels, text fields, text areas, and submit buttons-->

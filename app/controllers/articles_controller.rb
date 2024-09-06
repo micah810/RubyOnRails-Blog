@@ -12,16 +12,16 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(title: "...", body: "...")
-
+    @article = Article.new(article_params)
     if @article.save
       redirect_to @article
     else
+      render :new, status: :unprocessable_entity
       # the purpose of the new New Action prepares a blank article for a form
       # the default of it is to render the form page from app/views/articles/new.html.erb
       # the setup helps create and save articles/fix errors if something goes wrong
-      render :new, status: :unprocessable_entity
     end
+  end
 
     def edit
       @article = Article.find(params[:id])
@@ -47,4 +47,4 @@ class ArticlesController < ApplicationController
       params.require(:article).permit(:title, :body)
     end
   end
-end
+
